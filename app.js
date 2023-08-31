@@ -2,7 +2,7 @@ const loadVideosData = async (id = 1000) => {
   const response = await fetch(` https://openapi.programming-hero.com/api/videos/category/${id}`);
   const data = await response.json();
   const categories = data.data;
-  // console.log(catagories);
+  console.log(categories);
   showVideos(categories);
   sorting(categories)
 }
@@ -26,7 +26,12 @@ const showVideos = (categories) => {
 
     div.innerHTML =
       `
-  <figure>
+  <figure class="relative">
+  <p class="text-xs absolute bottom-2 right-2 bg-[#171717] rounded-lg text-white p-1" id="">
+  ${category?.others?.posted_date
+    ? `${Math.floor((category?.others?.posted_date) / 3600)} hrs ${((category?.others?.posted_date) / 3600 - Math.floor((category?.others?.posted_date) / 3600)).toFixed(0) * 60} min ago`
+    : ''}
+  </p>
   <img src="${category.thumbnail}" alt="" class="h-[184px] w-[285px]" />
   </figure>
   <div class="flex">
@@ -40,6 +45,7 @@ const showVideos = (categories) => {
       <span class="" id="verified-badge">${category.authors[0].verified ? '<img src="badge.svg" alt="Verified Badge">' : ''}</span>
   </div>
   <p class="" id="">${category.others?.views} views</p>
+ 
   </div>
   </div>
   `;
