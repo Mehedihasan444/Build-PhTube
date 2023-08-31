@@ -10,3 +10,29 @@ Blog Questions
 Discuss the scope of var, let, and const
 Tell us the use cases of null and undefined
 What do you mean by REST API?
+
+
+
+authors
+: 
+[{…}]
+category_id
+: 
+"1001"
+others
+: 
+posted_date
+: 
+"16278"
+views
+: 
+"100K"
+[[Prototype]]
+: 
+Object
+thumbnail
+: 
+"https://i.ibb.co/L1b6xSq/shape.jpg"
+title
+: 
+"Shape of You"
