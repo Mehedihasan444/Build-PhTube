@@ -10,6 +10,13 @@
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .active{
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="max-w-7xl mx-auto ">
@@ -28,10 +35,10 @@
         <section>
             <hr>
             <div class="flex justify-center mx-5 gap-3 md:gap-7 my-10" id="btns-container">
-                <button class="btn active:bg-[#FF1F3D] active" id="all" onclick="loadVideosData(1000)">All</button>
-                <button class="btn active:bg-red-500" id="Music" onclick="loadVideosData(1001)">Music</button>
-                <button class="btn active:bg-red-500" id="Comedy" onclick="loadVideosData(1003)">Comedy</button>
-                <button class="btn active:bg-red-500" id="Drawing" onclick="loadVideosData(1005)">Drawing</button>
+                <button class="btn active:bg-[#FF1F3D] active" id="all" onclick="loadVideosData(1000);active('all')">All</button>
+                <button class="btn active:bg-red-500" id="Music" onclick="loadVideosData(1001); active('Music')">Music</button>
+                <button class="btn active:bg-red-500" id="Comedy" onclick="loadVideosData(1003);active('Comedy')">Comedy</button>
+                <button class="btn active:bg-red-500" id="Drawing" onclick="loadVideosData(1005);active('Drawing')">Drawing</button>
             </div>
 
             <div class="flex justify-center items-center">
@@ -53,3 +60,8 @@
 </body>
 
 </html>
+
+
+
+
+
