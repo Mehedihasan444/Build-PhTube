@@ -9,7 +9,7 @@ loadButtonData();
 
 const showButton = (categories) => {
   const btnContainer = document.getElementById('btns-container');
-  
+
   categories.forEach(category => {
     const btnDiv = document.createElement('div');
     btnDiv.innerHTML = `
@@ -22,13 +22,13 @@ const showButton = (categories) => {
   loadVideosData(1000);
 }
 const handleButtonClick = (category_id) => {
- 
+
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(button => button.classList.remove('active'));
-  
+
   const clickedButton = document.getElementById(category_id);
   clickedButton.classList.add('active');
-  
+
   loadVideosData(category_id);
 };
 
@@ -36,9 +36,8 @@ const loadVideosData = async (id = 1000) => {
   const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
   const data = await response.json();
   const categories = data.data;
-  console.log(categories);
+  // console.log(categories);
   showVideos(categories);
-  sorting(categories)
 }
 
 
@@ -89,6 +88,18 @@ const showVideos = (categories) => {
 }
 
 
-const sorting = (categories) => {
-  
+const sorting =async () => {
+  const response =await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`);
+  const data =await response.json();
+  const categories = data.data;
+  // console.log(categories);
+  categories.sort((a, b) => {
+
+    const viewsA = parseFloat(a.others.views.replace('K', '000'));
+    const viewsB = parseFloat(b.others.views.replace('K', '000'));
+
+
+    return viewsB - viewsA;
+  });
+  showVideos(categories);
 }
