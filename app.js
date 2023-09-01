@@ -1,5 +1,39 @@
+const loadButtonData = async () => {
+  const response = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
+  const data = await response.json();
+  const btnData = data.data;
+  showButton(btnData);
+
+}
+loadButtonData();
+
+const showButton = (categories) => {
+  const btnContainer = document.getElementById('btns-container');
+  
+  categories.forEach(category => {
+    const btnDiv = document.createElement('div');
+    btnDiv.innerHTML = `
+    <button class="btn ${category.category === 'All' ? 'active' : ''}" id="${category.category_id}" onclick="handleButtonClick(${category.category_id})">${category.category}</button>
+
+    `;
+    btnContainer.appendChild(btnDiv);
+  });
+
+  loadVideosData(1000);
+}
+const handleButtonClick = (category_id) => {
+ 
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => button.classList.remove('active'));
+  
+  const clickedButton = document.getElementById(category_id);
+  clickedButton.classList.add('active');
+  
+  loadVideosData(category_id);
+};
+
 const loadVideosData = async (id = 1000) => {
-  const response = await fetch(` https://openapi.programming-hero.com/api/videos/category/${id}`);
+  const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
   const data = await response.json();
   const categories = data.data;
   console.log(categories);
@@ -29,8 +63,8 @@ const showVideos = (categories) => {
   <figure class="relative">
   <p class="text-xs absolute bottom-2 right-2 bg-[#171717] rounded-lg text-white p-1" id="">
   ${category?.others?.posted_date
-    ? `${Math.floor((category?.others?.posted_date) / 3600)} hrs ${((category?.others?.posted_date) / 3600 - Math.floor((category?.others?.posted_date) / 3600)).toFixed(0) * 60} min ago`
-    : ''}
+        ? `${Math.floor((category?.others?.posted_date) / 3600)} hrs ${((category?.others?.posted_date) / 3600 - Math.floor((category?.others?.posted_date) / 3600)).toFixed(0) * 60} min ago`
+        : ''}
   </p>
   <img src="${category.thumbnail}" alt="" class="h-[184px] w-[285px]" />
   </figure>
@@ -54,31 +88,7 @@ const showVideos = (categories) => {
   });
 }
 
-loadVideosData(1000);
-
-const active = (id) => {
-  const All = document.getElementById('all');
-  All.classList.remove('active');
-  const Music = document.getElementById('Music');
-  Music.classList.remove('active');
-  const Comedy = document.getElementById('Comedy');
-  Comedy.classList.remove('active');
-  const Drawing = document.getElementById('Drawing');
-  Drawing.classList.remove('active');
-
-  const idName = document.getElementById(id);
- 
-  if (idName.classList.contains(active)) {
-    idName.classList.remove('active');
-
-  } else {
-    idName.classList.add('active');
-  }
-}
-
-
-
 
 const sorting = (categories) => {
-
+  
 }

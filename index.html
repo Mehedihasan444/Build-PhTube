@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        .active{
+        .active {
             background-color: red;
             color: white;
         }
@@ -35,16 +35,15 @@
         <section>
             <hr>
             <div class="flex justify-center mx-5 gap-3 md:gap-7 my-10" id="btns-container">
-                <button class="btn active:bg-[#FF1F3D] active" id="all" onclick="loadVideosData(1000);active('all')">All</button>
-                <button class="btn active:bg-red-500" id="Music" onclick="loadVideosData(1001); active('Music')">Music</button>
-                <button class="btn active:bg-red-500" id="Comedy" onclick="loadVideosData(1003);active('Comedy')">Comedy</button>
-                <button class="btn active:bg-red-500" id="Drawing" onclick="loadVideosData(1005);active('Drawing')">Drawing</button>
+
             </div>
 
             <div class="flex justify-center items-center">
                 <div class="hidden  mt-10" id="alert">
-                    <div class="flex justify-center items-center"><img src="./images/Icon.png" alt="" class="w-20"></div>
-                    <h1 class="text-2xl font-bold  text-center text-gray-400">Oops!! Sorry, There is no content here</h1>
+                    <div class="flex justify-center items-center"><img src="./images/Icon.png" alt="" class="w-20">
+                    </div>
+                    <h1 class="text-2xl font-bold  text-center text-gray-400">Oops!! Sorry, There is no content here
+                    </h1>
                 </div>
             </div>
             <div class=" grid p-10 md:grid-cols-2 lg:grid-cols-4 gap-5" id="videos-container">
@@ -64,4 +63,7 @@
 
 
 
-
+<!-- <button class="btn active:bg-[#FF1F3D] active" id="all" onclick="loadVideosData(1000);active('all')">All</button>
+                <button class="btn active:bg-red-500" id="Music" onclick="loadVideosData(1001); active('Music')">Music</button>
+                <button class="btn active:bg-red-500" id="Comedy" onclick="loadVideosData(1003);active('Comedy')">Comedy</button>
+                <button class="btn active:bg-red-500" id="Drawing" onclick="loadVideosData(1005);active('Drawing')">Drawing</button> -->

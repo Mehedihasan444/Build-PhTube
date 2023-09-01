@@ -1,15 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h1>blog</h1>
+<body class="my-10 max-w-7xl mx-auto ">
+    <h1 class="text-center text-4xl font-bold mb-5">Blog Questions</h1>
+    <!-- accordion -->
+    <div class="collapse collapse-arrow bg-base-200 mb-3">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+            Discuss the scope of var, let, and const
+        </div>
+        <div class="collapse-content">
+            <p><strong>Answer:</strong> In JavaScript, the scope of a variable determines where it can be accessed in
+                the code. There are three types of variable scope in JavaScript: <br> <br>
+
+                &nbsp; &nbsp; &nbsp; <strong>Global scope:</strong> Variables declared outside of any function have
+                global scope. They can be
+                accessed from anywhere in the code. <br>
+                &nbsp; &nbsp; &nbsp; <strong>Function scope:</strong> Variables declared inside a function have function
+                scope. They can only
+                be accessed from within the function. <br>
+                &nbsp; &nbsp; &nbsp; <strong>Block scope:</strong> Variables declared within a block of code, such as an
+                if statement or a
+                for loop, have block scope. They can only be accessed from within the block. <br> <br>
+                The keywords var, let, and const are used to declare variables in JavaScript. The scope of a variable
+                declared with var is function scope, the scope of a variable declared with let is block scope, and the
+                scope of a variable declared with const is also block scope.
+            </p>
+        </div>
+    </div>
+    <div class="collapse collapse-arrow bg-base-200 mb-3">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+            Tell us the use cases of null and undefined
+        </div>
+        <div class="collapse-content">
+            <p><strong>Answer:</strong>The null and undefined values in JavaScript are used to represent the absence of
+                a value.<br>
+            <ul class="list-disc ml-7">
+                <li class=""> Null is used to explicitly represent the absence of a value. For example, you can use null
+                    to
+                    represent a missing value in an object or an array. </li>
+                <li>
+                    Undefined is used to represent the absence of a value in a variable that has not been assigned a
+                    value. For example, if you declare a variable without assigning it a value, the variable will have
+                    the value undefined.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div class="collapse collapse-arrow bg-base-200 mb-3">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+            What do you mean by REST API?
+        </div>
+        <div class="collapse-content">
+            <p><strong>Answer:</strong>REST API stands for Representational State Transfer Application Programming
+                Interface. It is an architectural style for designing APIs that uses HTTP requests to access and use
+                data. REST APIs are based on the principles of REST, which is a set of constraints that define how an
+                API should be designed. <br>
+
+                The main constraints of REST are: <br>
+
+                &nbsp;&nbsp;&nbsp;<strong>Resource identification: </strong>Every resource in a REST API is identified
+                by a unique URI. <br>
+                &nbsp;&nbsp;&nbsp;<strong>Resource manipulation using HTTP methods: </strong> The four HTTP methods
+                (GET, POST, PUT, and DELETE) are used to manipulate resources in a REST API. <br>
+                &nbsp;&nbsp;&nbsp;<strong>Self-descriptive messages: </strong>The data returned by a REST API should be
+                self-descriptive, so that the client can understand it without having to know the internal workings of <span class="pl-5">   the API.</span> <br>
+                &nbsp;&nbsp;&nbsp;<strong>Uniform interface:</strong> All resources in a REST API should be accessed
+                using the same interface, regardless of their type or location. <br> <br>
+                REST APIs are a popular choice for developing APIs because they are simple, scalable, and efficient.
+                They are also widely supported by most programming languages and frameworks.</p>
+        </div>
+    </div>
 </body>
 
 </html>
-
