@@ -66,11 +66,12 @@ const showVideos = (categories) => {
     div.innerHTML =
       `
   <figure class="relative">
-  <p class="text-xs absolute bottom-2 right-2 bg-[#171717] rounded-lg text-white p-1" id="">
+  <p class="text-xs absolute bottom-2 right-2 bg-[#171717] rounded-lg text-white  ${category?.others?.posted_date === '' ? '' : 'p-1'}" id="">
   ${category?.others?.posted_date
         ? `${Math.floor((category?.others?.posted_date) / 3600)} hrs ${((category?.others?.posted_date) / 3600 - Math.floor((category?.others?.posted_date) / 3600)).toFixed(0) * 60} min ago`
         : ''}
-  </p>
+</p>
+
   <img src="${category.thumbnail}" alt="" class="h-[184px] w-[285px]" />
   </figure>
   <div class="flex">
@@ -90,6 +91,7 @@ const showVideos = (categories) => {
   `;
 
     videosContainer.appendChild(div);
+
   });
 }
 
