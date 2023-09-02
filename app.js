@@ -1,3 +1,4 @@
+// load all categories though API
 const loadButtonData = async () => {
   const response = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
   const data = await response.json();
@@ -7,6 +8,7 @@ const loadButtonData = async () => {
 }
 loadButtonData();
 
+// Dynamically create buttons 
 const showButton = (categories) => {
   const btnContainer = document.getElementById('btns-container');
 
@@ -21,6 +23,8 @@ const showButton = (categories) => {
 
   loadVideosData(1000);
 }
+
+// handle button active color
 const handleButtonClick = (category_id) => {
 
   const buttons = document.querySelectorAll('.btn');
@@ -31,16 +35,18 @@ const handleButtonClick = (category_id) => {
 
   loadVideosData(category_id);
 };
-let temp ;
+
+// load videos according to ID
+let temp;
 const loadVideosData = async (id = 1000) => {
   const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
   const data = await response.json();
   const categories = data.data;
   showVideos(categories);
-  temp=id;
+  temp = id;
 }
 
-
+// showing videos 
 const showVideos = (categories) => {
   const videosContainer = document.getElementById('videos-container');
   const alertMessage = document.getElementById('alert');
@@ -88,9 +94,10 @@ const showVideos = (categories) => {
 }
 
 
-const sorting =async () => {
-  const response =await fetch(`https://openapi.programming-hero.com/api/videos/category/${temp}`);
-  const data =await response.json();
+// sorting videos based on number of views
+const sorting = async () => {
+  const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${temp}`);
+  const data = await response.json();
   const categories = data.data;
   categories.sort((a, b) => {
 
@@ -100,8 +107,8 @@ const sorting =async () => {
 
     return viewsB - viewsA;
   });
-  
-    
-    showVideos(categories);
-  
+
+
+  showVideos(categories);
+
 }
